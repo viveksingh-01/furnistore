@@ -40,4 +40,17 @@ nav {
       border-bottom: 2px solid $accent-color;
     }
   }
+  input[type='search'] {
+    border: none;
+    border-bottom: 2px solid #ffc000;
+    border-radius: 0;
+    padding: 0.375rem 0;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.form-control {
+  color: $primary-dark !important;
 }
