@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "scss": "node-sass --watch scss/ -o css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/viveksingh-01/furnistore/issues"
   },
-  "homepage": "https://github.com/viveksingh-01/furnistore#readme"
+  "homepage": "https://github.com/viveksingh-01/furnistore#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
 }
