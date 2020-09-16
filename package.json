@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/viveksingh-01/furnistore#readme",
   "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
     "node-sass": "^4.14.1"
   }
 }
