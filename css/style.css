@@ -1,5 +1,31 @@
+@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
+@import url(../node_modules/@fortawesome/fontawesome-free/css/all.min.css);
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
+
+body {
+  font-size: 0.75rem !important; }
+
+nav.navbar-light .navbar-toggler {
+  border: none !important;
+  padding: 0 !important; }
+  nav.navbar-light .navbar-toggler:focus {
+    outline: none !important; }
+
+nav .navbar-brand {
+  background-color: #000000;
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 0.5rem 0.75rem; }
+
+nav .navbar-nav .nav-link {
+  color: #000000 !important;
+  font-weight: 700;
+  height: 2.25rem;
+  padding: 0.5rem 1.25rem !important; }
+  nav .navbar-nav .nav-link:active {
+    border-bottom: 2px solid #ffc000; }
+  nav .navbar-nav .nav-link:hover {
+    border-bottom: 2px solid #ffc000; }
