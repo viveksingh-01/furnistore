@@ -73,7 +73,56 @@ nav .login-btn {
   color: #000000 !important; }
 
 main .filters--container {
-  width: 25%; }
+  width: 25%;
+  margin-right: 2rem; }
+  main .filters--container .filters--container__header {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 2rem; }
+  main .filters--container .filter__price-range input[type='range'] {
+    -webkit-appearance: none;
+    width: 100%;
+    display: block;
+    background-color: #e5e5e5;
+    height: 2px;
+    border-radius: 5px;
+    margin: 1.5rem auto;
+    outline: 0; }
+    main .filters--container .filter__price-range input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: #ffc000;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s ease-in-out; }
+    main .filters--container .filter__price-range input[type='range']::-moz-range-thumb {
+      -webkit-appearance: none;
+      background-color: #ffc000;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s ease-in-out; }
+    main .filters--container .filter__price-range input[type='range']::-ms-thumb {
+      -webkit-appearance: none;
+      background-color: #ffc000;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s ease-in-out; }
+    main .filters--container .filter__price-range input[type='range']::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent; }
+    main .filters--container .filter__price-range input[type='range']:focus {
+      outline: none; }
+  main .filters--container .filter__price-range .range-value__text {
+    color: #444444;
+    font-weight: bold; }
 
 main .products--section {
   width: 75%;

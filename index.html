@@ -64,7 +64,17 @@
       </div>
     </nav>
     <main class="container d-flex my-3">
-      <aside class="filters--container"></aside>
+      <aside class="filters--container">
+        <h6 class="text-muted filters--container__header">FILTER BY</h6>
+        <article class="filter__price-range">
+          <h6>Price Range</h6>
+          <input type="range" min="1" max="10000" value="3000" class="" id="" />
+          <div class="d-flex justify-content-between">
+            <span class="range-value__text">$3000</span>
+            <span class="range-value__text">$10000</span>
+          </div>
+        </article>
+      </aside>
       <section class="products--section">
         <article class="product">
           <div class="product__image">

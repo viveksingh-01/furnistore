@@ -95,6 +95,65 @@ nav {
 main {
   .filters--container {
     width: 25%;
+    margin-right: 2rem;
+    .filters--container__header {
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    .filter__price-range {
+      input[type='range'] {
+        -webkit-appearance: none;
+        width: 100%;
+        display: block;
+        background-color: #e5e5e5;
+        height: 2px;
+        border-radius: 5px;
+        margin: 1.5rem auto;
+        outline: 0;
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          background-color: $accent-color;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+        }
+        &::-moz-range-thumb {
+          -webkit-appearance: none;
+          background-color: $accent-color;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+        }
+        &::-ms-thumb {
+          -webkit-appearance: none;
+          background-color: $accent-color;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+        }
+        &::-ms-track {
+          width: 100%;
+          cursor: pointer;
+          background: transparent;
+          border-color: transparent;
+          color: transparent;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .range-value__text {
+        color: $secondary-dark;
+        font-weight: bold;
+      }
+    }
   }
   .products--section {
     width: 75%;
