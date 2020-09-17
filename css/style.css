@@ -72,6 +72,47 @@ nav .login-btn {
 .form-control {
   color: #000000 !important; }
 
+main .filters--container {
+  width: 25%; }
+
+main .products--section {
+  width: 75%;
+  height: 750px;
+  overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap; }
+  main .products--section .product {
+    width: 250px;
+    margin-bottom: 2rem; }
+    main .products--section .product .product__details .product__info {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      margin-top: -2rem;
+      width: 150px; }
+      main .products--section .product .product__details .product__info .product__name {
+        font-size: 1rem;
+        font-weight: bold; }
+      main .products--section .product .product__details .product__info .product__category {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+    main .products--section .product .product__details .product__price {
+      color: #444444;
+      margin-top: auto; }
+    main .products--section .product .product__details .add-to-cart__btn {
+      background-color: #ffffff;
+      border: none;
+      font-size: 1.5rem;
+      outline: none; }
+      main .products--section .product .product__details .add-to-cart__btn .fa-cart-plus {
+        color: #444444; }
+        main .products--section .product .product__details .add-to-cart__btn .fa-cart-plus:hover {
+          color: #000000; }
+
 @media screen and (max-width: 575px) {
   input[type='search'] {
     width: 150px; } }

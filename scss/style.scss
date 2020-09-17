@@ -92,6 +92,60 @@ nav {
   color: $primary-dark !important;
 }
 
+main {
+  .filters--container {
+    width: 25%;
+  }
+  .products--section {
+    width: 75%;
+    height: 750px;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    .product {
+      width: 250px;
+      margin-bottom: 2rem;
+      .product__details {
+        .product__info {
+          background-color: $primary-light;
+          display: flex;
+          flex-direction: column;
+          padding-top: 1rem;
+          margin-top: -2rem;
+          width: 150px;
+          .product__name {
+            font-size: 1rem;
+            font-weight: bold;
+          }
+          .product__category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+        }
+        .product__price {
+          color: $secondary-dark;
+          margin-top: auto;
+        }
+        .add-to-cart__btn {
+          background-color: $primary-light;
+          border: none;
+          font-size: 1.5rem;
+          outline: none;
+          .fa-cart-plus {
+            color: $secondary-dark;
+            &:hover {
+              color: $primary-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 575px) {
   input[type='search'] {
     width: 150px;
