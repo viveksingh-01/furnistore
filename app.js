@@ -2,6 +2,7 @@ const productSection = document.querySelector('.products--section');
 const priceRangeFilter = document.querySelector('#priceRangeFilter');
 const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
+const maxPriceFilterValue = 1000;
 
 const getProducts = async () => {
   try {
@@ -105,14 +106,19 @@ class LocalStorage {
   }
 }
 
+const setupPriceRangeFilter = () => {
+  priceRangeFilter.value = maxPriceFilterValue;
+  priceFilterValue.textContent = `$${maxPriceFilterValue}`;
+  priceRangeFilter.addEventListener('input', event => {
+    const { value } = event?.target;
+    priceFilterValue.textContent = `$${value}`;
+    displayProducts(value);
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   Cart.prepopulateWithItems();
   updateCartBadge();
-  const maxPrice = 1000;
-  priceRangeFilter.value = maxPrice;
-  priceFilterValue.textContent = `$${maxPrice}`;
-  priceRangeFilter.addEventListener('input', event => {
-    priceFilterValue.textContent = `$${event?.target.value}`;
-  });
-  displayProducts(maxPrice);
+  setupPriceRangeFilter();
+  displayProducts(maxPriceFilterValue);
 });
