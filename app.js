@@ -1,8 +1,30 @@
-const productSection = document.querySelector('.products--section');
+const searchBars = [...document.querySelectorAll('#searchBar')];
 const priceRangeFilter = document.querySelector('#priceRangeFilter');
 const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
-const maxPriceFilterValue = 1000;
+const productSection = document.querySelector('.products--section');
+
+let searchText = '';
+let maxPriceFilterValue = 1000;
+
+const setupSearchBar = () => {
+  searchBars.forEach(searchBar => {
+    searchBar.addEventListener('input', event => {
+      searchText = event?.target.value;
+      displayProducts();
+    });
+  });
+};
+
+const setupPriceRangeFilter = () => {
+  priceRangeFilter.value = maxPriceFilterValue;
+  priceFilterValue.textContent = `$${maxPriceFilterValue}`;
+  priceRangeFilter.addEventListener('input', event => {
+    maxPriceFilterValue = event?.target.value;
+    priceFilterValue.textContent = `$${maxPriceFilterValue}`;
+    displayProducts();
+  });
+};
 
 const getProducts = async () => {
   try {
@@ -25,12 +47,12 @@ const getRatingsHTML = rating => {
   return ratingsHTML;
 };
 
-const displayProducts = async maxPrice => {
+const displayProducts = async () => {
   const products = await getProducts();
   let productSectionHTML = '';
   products.forEach(product => {
     const { id, name, category, price, rating, imageUrl } = product;
-    if (price <= maxPrice) {
+    if (price <= maxPriceFilterValue && name.toLowerCase().includes(searchText)) {
       productSectionHTML += `<article class="product">
       <div class="product__image" title=${name}>
         <img src=${imageUrl} alt=${name} />
@@ -106,19 +128,10 @@ class LocalStorage {
   }
 }
 
-const setupPriceRangeFilter = () => {
-  priceRangeFilter.value = maxPriceFilterValue;
-  priceFilterValue.textContent = `$${maxPriceFilterValue}`;
-  priceRangeFilter.addEventListener('input', event => {
-    const { value } = event?.target;
-    priceFilterValue.textContent = `$${value}`;
-    displayProducts(value);
-  });
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   Cart.prepopulateWithItems();
   updateCartBadge();
+  setupSearchBar();
   setupPriceRangeFilter();
-  displayProducts(maxPriceFilterValue);
+  displayProducts();
 });
