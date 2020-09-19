@@ -38,7 +38,7 @@ const displayProducts = async () => {
           <h6 class="product__price">$${product.price}</h6>
         </div>
         <div class="d-flex justify-content-between">
-          <div class="mt-auto product__rating">${getRatingsHTML(product)}</div>
+          <div class="mt-auto py-1 product__rating">${getRatingsHTML(product)}</div>
           <button class="add-to-cart__btn" data-id=${product.id}><i class="fas fa-cart-plus"></i></button>
         </div>
       </div>
@@ -64,7 +64,7 @@ const addEventListenerOnCartBtns = products => {
 const checkIfItemInCartAndModifyBtn = (addToCartBtn, btnId) => {
   const isItemInCart = Cart.items.find(item => item.id === btnId);
   if (isItemInCart) {
-    addToCartBtn.innerHTML = '<span style="font-size: 1rem">IN CART</span>';
+    addToCartBtn.innerHTML = '<span class="add-to-cart__text">ADDED TO CART</span>';
     addToCartBtn.disabled = true;
   }
 };
