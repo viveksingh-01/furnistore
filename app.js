@@ -1,4 +1,6 @@
 const productSection = document.querySelector('.products--section');
+const priceRangeFilter = document.querySelector('#priceRangeFilter');
+const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
 
 const getProducts = async () => {
@@ -11,7 +13,7 @@ const getProducts = async () => {
   }
 };
 
-const getRatingsHTML = ({ rating }) => {
+const getRatingsHTML = rating => {
   let ratingsHTML = '';
   for (let i = 1; i <= rating; i++) {
     ratingsHTML += '<i class="fas fa-star"></i>';
@@ -22,28 +24,31 @@ const getRatingsHTML = ({ rating }) => {
   return ratingsHTML;
 };
 
-const displayProducts = async () => {
+const displayProducts = async maxPrice => {
   const products = await getProducts();
   let productSectionHTML = '';
   products.forEach(product => {
-    productSectionHTML += `<article class="product">
-      <div class="product__image" title=${product.name}>
-        <img src=${product.imageUrl} alt=${product.name} />
+    const { id, name, category, price, rating, imageUrl } = product;
+    if (price <= maxPrice) {
+      productSectionHTML += `<article class="product">
+      <div class="product__image" title=${name}>
+        <img src=${imageUrl} alt=${name} />
       </div>
       <div class="product__details">
         <div class="d-flex justify-content-between">
           <div class="product__info">
-            <h5 class="product__name">${product.name}</h5>
-            <h6 class="text-muted product__category">${product.category}</h6>
+            <h5 class="product__name">${name}</h5>
+            <h6 class="text-muted product__category">${category}</h6>
           </div>
-          <h6 class="product__price">$${product.price}</h6>
+          <h6 class="product__price">$${price}</h6>
         </div>
         <div class="d-flex justify-content-between">
-          <div class="mt-auto py-1 product__rating">${getRatingsHTML(product)}</div>
-          <button class="add-to-cart__btn" data-id=${product.id}><i class="fas fa-cart-plus"></i></button>
+          <div class="mt-auto py-1 product__rating">${getRatingsHTML(rating)}</div>
+          <button class="add-to-cart__btn" data-id=${id}><i class="fas fa-cart-plus"></i></button>
         </div>
       </div>
     </article>`;
+    }
   });
   productSection.innerHTML = productSectionHTML;
   addEventListenerOnCartBtns(products);
@@ -103,5 +108,11 @@ class LocalStorage {
 document.addEventListener('DOMContentLoaded', () => {
   Cart.prepopulateWithItems();
   updateCartBadge();
-  displayProducts();
+  const maxPrice = 1000;
+  priceRangeFilter.value = maxPrice;
+  priceFilterValue.textContent = `$${maxPrice}`;
+  priceRangeFilter.addEventListener('input', event => {
+    priceFilterValue.textContent = `$${event?.target.value}`;
+  });
+  displayProducts(maxPrice);
 });
