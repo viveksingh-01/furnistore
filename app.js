@@ -45,6 +45,10 @@ const displayProducts = async () => {
     </article>`;
   });
   productSection.innerHTML = productSectionHTML;
+  addEventListenerOnCartBtns(products);
+};
+
+const addEventListenerOnCartBtns = products => {
   const addToCartBtnList = [...document.querySelectorAll('.add-to-cart__btn')];
   addToCartBtnList.forEach(addToCartBtn => {
     addToCartBtn.addEventListener('click', () => {
@@ -61,8 +65,11 @@ class Cart {
     this.items.push(product);
     LocalStorage.save('cart', this.items);
   }
-  static populateCart() {
-    this.items = LocalStorage.getItems('cart');
+  static prepopulateWithItems() {
+    const cartItems = LocalStorage.getItems('cart');
+    if (cartItems) {
+      this.items = cartItems;
+    }
   }
 }
 
@@ -77,5 +84,5 @@ class LocalStorage {
 
 document.addEventListener('DOMContentLoaded', () => {
   displayProducts();
-  Cart.populateCart();
+  Cart.prepopulateWithItems();
 });
