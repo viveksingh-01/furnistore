@@ -39,13 +39,28 @@ const displayProducts = async () => {
         </div>
         <div class="d-flex justify-content-between">
           <div class="mt-auto product__rating">${getRatingsHTML(product)}</div>
-          <button class="add-to-cart__btn"><i class="fas fa-cart-plus"></i></button>
+          <button class="add-to-cart__btn" data-id=${product.id}><i class="fas fa-cart-plus"></i></button>
         </div>
       </div>
     </article>`;
   });
   productSection.innerHTML = productSectionHTML;
+  const addToCartBtnList = [...document.querySelectorAll('.add-to-cart__btn')];
+  addToCartBtnList.forEach(addToCartBtn => {
+    addToCartBtn.addEventListener('click', () => {
+      const btnId = +addToCartBtn.dataset.id;
+      const productToAdd = products.find(product => product.id === btnId);
+      Cart.addItem(productToAdd);
+    });
+  });
 };
+
+class Cart {
+  static items = [];
+  static addItem(product) {
+    this.items.push(product);
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   displayProducts();
