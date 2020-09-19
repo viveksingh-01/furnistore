@@ -44,15 +44,25 @@ nav .search-bar--form {
   nav .search-bar--form .fa-search {
     color: #444444; }
 
-nav .cart-btn {
-  background-color: #ffffff;
-  border: none;
-  outline: none;
-  padding: 0.5rem; }
-  nav .cart-btn .fa-shopping-cart {
-    color: #444444; }
-    nav .cart-btn .fa-shopping-cart:hover {
-      color: #000000; }
+nav .cart-btn--container {
+  position: relative; }
+  nav .cart-btn--container .cart-btn {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 0.5rem; }
+    nav .cart-btn--container .cart-btn .fa-shopping-cart {
+      color: #444444;
+      font-size: 1.25rem; }
+      nav .cart-btn--container .cart-btn .fa-shopping-cart:hover {
+        color: #000000; }
+  nav .cart-btn--container .cart-btn__badge {
+    background-color: #ffc000;
+    font-weight: bold;
+    padding: 0.1rem 0.4rem;
+    position: absolute;
+    top: -0.25rem;
+    margin-left: 1.5rem; }
 
 nav .login-btn {
   background-color: #ffffff;

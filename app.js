@@ -1,4 +1,5 @@
 const productSection = document.querySelector('.products--section');
+const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
 
 const getProducts = async () => {
   try {
@@ -94,5 +95,6 @@ class LocalStorage {
 
 document.addEventListener('DOMContentLoaded', () => {
   Cart.prepopulateWithItems();
+  cartBtnBadges.forEach(cartBtnBadge => (cartBtnBadge.innerHTML = Cart.items.length));
   displayProducts();
 });
