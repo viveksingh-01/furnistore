@@ -139,12 +139,11 @@ nav .login-btn {
   height: 750px;
   overflow: auto;
   display: flex;
-  justify-content: space-between;
   align-content: flex-start;
   flex-wrap: wrap; }
   .products--section .product {
     max-width: 250px;
-    margin: 0 0.5rem 2rem 0; }
+    margin: 0 1rem 2rem 0; }
     .products--section .product .product__image img {
       width: 100%; }
     .products--section .product .product__details .product__info {
