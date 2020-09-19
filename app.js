@@ -57,8 +57,15 @@ const addEventListenerOnCartBtns = products => {
     addToCartBtn.addEventListener('click', () => {
       const productToAdd = products.find(product => product.id === btnId);
       Cart.addItem(productToAdd);
+      updateCartBadge();
       checkIfItemInCartAndModifyBtn(addToCartBtn, btnId);
     });
+  });
+};
+
+const updateCartBadge = () => {
+  cartBtnBadges.forEach(cartBtnBadge => {
+    cartBtnBadge.innerHTML = Cart.items.length;
   });
 };
 
@@ -95,6 +102,6 @@ class LocalStorage {
 
 document.addEventListener('DOMContentLoaded', () => {
   Cart.prepopulateWithItems();
-  cartBtnBadges.forEach(cartBtnBadge => (cartBtnBadge.innerHTML = Cart.items.length));
+  updateCartBadge();
   displayProducts();
 });
