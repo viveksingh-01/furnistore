@@ -59,9 +59,23 @@ class Cart {
   static items = [];
   static addItem(product) {
     this.items.push(product);
+    LocalStorage.save('cart', this.items);
+  }
+  static populateCart() {
+    this.items = LocalStorage.getItems('cart');
+  }
+}
+
+class LocalStorage {
+  static save(key, item) {
+    localStorage.setItem(key, JSON.stringify(item));
+  }
+  static getItems(key) {
+    return JSON.parse(localStorage.getItem(key));
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   displayProducts();
+  Cart.populateCart();
 });
