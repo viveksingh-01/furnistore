@@ -1,4 +1,5 @@
-const searchBars = [...document.querySelectorAll('#searchBar')];
+const searchBar = document.querySelector('#searchBar');
+const searchBarMob = document.querySelector('#searchBarMob');
 const priceRangeFilter = document.querySelector('#priceRangeFilter');
 const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
@@ -7,22 +8,24 @@ const productSection = document.querySelector('.products--section');
 let searchText = '';
 let maxPriceFilterValue = 1000;
 
-const setupSearchBar = () => {
-  searchBars.forEach(searchBar => {
-    searchBar.addEventListener('input', event => {
-      searchText = event?.target.value;
-      displayProducts();
-    });
+const setupSearchBar = products => {
+  searchBar.addEventListener('input', event => {
+    searchText = event?.target.value;
+    displayProducts(products);
+  });
+  searchBarMob.addEventListener('input', event => {
+    searchText = event?.target.value;
+    displayProducts(products);
   });
 };
 
-const setupPriceRangeFilter = () => {
+const setupPriceRangeFilter = products => {
   priceRangeFilter.value = maxPriceFilterValue;
   priceFilterValue.textContent = `$${maxPriceFilterValue}`;
   priceRangeFilter.addEventListener('input', event => {
     maxPriceFilterValue = event?.target.value;
     priceFilterValue.textContent = `$${maxPriceFilterValue}`;
-    displayProducts();
+    displayProducts(products);
   });
 };
 
@@ -47,8 +50,7 @@ const getRatingsHTML = rating => {
   return ratingsHTML;
 };
 
-const displayProducts = async () => {
-  const products = await getProducts();
+const displayProducts = products => {
   let productSectionHTML = '';
   products.forEach(product => {
     const { id, name, category, price, rating, imageUrl } = product;
@@ -93,7 +95,7 @@ const addEventListenerOnCartBtns = products => {
 
 const updateCartBadge = () => {
   cartBtnBadges.forEach(cartBtnBadge => {
-    cartBtnBadge.innerHTML = Cart.items.length;
+    cartBtnBadge.textContent = Cart.items.length;
   });
 };
 
@@ -131,7 +133,9 @@ class LocalStorage {
 document.addEventListener('DOMContentLoaded', () => {
   Cart.prepopulateWithItems();
   updateCartBadge();
-  setupSearchBar();
-  setupPriceRangeFilter();
-  displayProducts();
+  getProducts().then(products => {
+    displayProducts(products);
+    setupSearchBar(products);
+    setupPriceRangeFilter(products);
+  });
 });
