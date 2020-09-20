@@ -1,12 +1,14 @@
 const searchBar = document.querySelector('#searchBar');
 const searchBarMob = document.querySelector('#searchBarMob');
 const categoryFilterSection = document.querySelector('#categoryFilterSection');
+const categoryFilterToggler = document.querySelector('#categoryFilterToggler');
 const priceRangeFilter = document.querySelector('#priceRangeFilter');
 const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
 const productSection = document.querySelector('.products--section');
 
 let searchText = '';
+let showCategoryFilter = false;
 const selectedFilterCategories = [];
 let maxPriceFilterValue = 1000;
 
@@ -19,6 +21,24 @@ const setupSearchBar = products => {
     searchText = event?.target.value;
     displayProducts(products);
   });
+};
+
+const setupCategoryFilterToggler = () => {
+  toggleCategoryFilterDisplay();
+  categoryFilterToggler.addEventListener('click', () => {
+    showCategoryFilter = !showCategoryFilter;
+    toggleCategoryFilterDisplay();
+  });
+};
+
+const toggleCategoryFilterDisplay = () => {
+  if (showCategoryFilter) {
+    categoryFilterToggler.innerHTML = '<i class="fas fa-chevron-up fa-lg"></i>';
+    categoryFilterSection.style.display = 'block';
+  } else {
+    categoryFilterToggler.innerHTML = '<i class="fas fa-chevron-down fa-lg"></i>';
+    categoryFilterSection.style.display = 'none';
+  }
 };
 
 const setupCategoryFilter = products => {
@@ -172,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
   getProducts().then(products => {
     displayProducts(products);
     setupSearchBar(products);
+    setupCategoryFilterToggler();
     setupCategoryFilter(products);
     setupPriceRangeFilter(products);
   });

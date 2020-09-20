@@ -104,13 +104,18 @@ nav {
   color: $primary-dark !important;
 }
 
-.filters--container {
-  width: 25%;
+.filters--section {
+  width: 320px;
   margin-right: 2rem;
-  .filters--container__header {
+  .filters--section__header {
     font-size: 0.75rem;
     font-weight: bold;
     margin-bottom: 1rem;
+  }
+  .filter__category {
+    #categoryFilterToggler {
+      cursor: pointer;
+    }
   }
   .filter__price-range {
     input[type='range'] {
@@ -167,7 +172,7 @@ nav {
   }
 }
 .products--section {
-  width: 75%;
+  width: 100%;
   height: 750px;
   overflow: auto;
   display: flex;
@@ -224,9 +229,13 @@ nav {
 }
 
 @media screen and (max-width: 991px) {
-  .filters--container {
-    width: 250px;
+  .filters--section {
+    width: 100%;
     margin-bottom: 2.5rem;
+    .filter__category,
+    .filter__price-range {
+      min-width: 250px;
+    }
   }
   .products--section {
     width: 90%;
@@ -238,7 +247,7 @@ nav {
 }
 
 @media screen and (max-width: 767px) {
-  .filters--container {
+  .filters--section {
     width: 90%;
     margin: 0 auto 2rem;
   }
