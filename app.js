@@ -4,7 +4,7 @@ const categoryFilterSection = document.querySelector('#categoryFilterSection');
 const categoryFilterToggler = document.querySelector('#categoryFilterToggler');
 const priceRangeFilter = document.querySelector('#priceRangeFilter');
 const priceFilterValue = document.querySelector('#priceFilterValue');
-const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
+const cartBtnBadges = [...document.querySelectorAll('.cart-btn--badge')];
 const productSection = document.querySelector('.products--section');
 
 let searchText = '';
@@ -125,7 +125,7 @@ const displayProducts = products => {
         </div>
         <div class="d-flex justify-content-between">
           <div class="mt-auto py-1 product__rating">${getRatingsHTML(rating)}</div>
-          <button class="add-to-cart__btn" data-id=${id}><i class="fas fa-cart-plus"></i></button>
+          <button class="add-to-cart--btn" data-id=${id}><i class="fas fa-cart-plus"></i></button>
         </div>
       </div>
     </article>`;
@@ -136,7 +136,7 @@ const displayProducts = products => {
 };
 
 const addEventListenerOnCartBtns = products => {
-  const addToCartBtnList = [...document.querySelectorAll('.add-to-cart__btn')];
+  const addToCartBtnList = [...document.querySelectorAll('.add-to-cart--btn')];
   addToCartBtnList.forEach(addToCartBtn => {
     const btnId = +addToCartBtn.dataset.id;
     checkIfItemInCartAndModifyBtn(addToCartBtn, btnId);
@@ -158,7 +158,7 @@ const updateCartBadge = () => {
 const checkIfItemInCartAndModifyBtn = (addToCartBtn, btnId) => {
   const isItemInCart = Cart.items.find(item => item.id === btnId);
   if (isItemInCart) {
-    addToCartBtn.innerHTML = '<span class="add-to-cart__text">ADDED TO CART</span>';
+    addToCartBtn.innerHTML = '<span class="add-to-cart--text">ADDED TO CART</span>';
     addToCartBtn.disabled = true;
   }
 };

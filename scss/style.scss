@@ -72,7 +72,7 @@ nav {
         }
       }
     }
-    .cart-btn__badge {
+    .cart-btn--badge {
       background-color: #ffc000;
       font-weight: bold;
       padding: 0.1rem 0.4rem;
@@ -208,7 +208,7 @@ nav {
         color: $secondary-dark;
         margin-top: auto;
       }
-      .add-to-cart__btn {
+      .add-to-cart--btn {
         background-color: $primary-light;
         border: none;
         font-size: 1.5rem;
@@ -219,7 +219,7 @@ nav {
             color: $primary-dark;
           }
         }
-        .add-to-cart__text {
+        .add-to-cart--text {
           font-size: 0.75rem;
           font-weight: bold;
         }
@@ -227,35 +227,44 @@ nav {
     }
   }
 }
-
-.product-carousel--container {
-  width: 50%;
-}
-.product-detail--container {
-  width: 40%;
-  .price-per-unit--text {
-    color: $secondary-dark;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.product-details--section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  .product-carousel {
+    margin-right: 3rem;
+    img {
+      width: 100%;
+    }
   }
-  .buy-now--btn {
-    color: $primary-light;
-    background-color: $primary-dark;
-    border: none;
-    font-weight: 700;
-    padding: 0.5rem 1.25rem;
-    height: 2.5rem;
-    outline: none;
-  }
-  .add-to-cart__btn {
-    background-color: $primary-light;
-    border: none;
-    font-size: 1.5rem;
-    outline: none;
-    .fa-cart-plus {
+  .product-details {
+    width: 420px;
+    .price-per-unit--text {
       color: $secondary-dark;
-      &:hover {
-        color: $primary-dark;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .buy-now--btn {
+      color: $primary-light;
+      background-color: $primary-dark;
+      border: none;
+      font-weight: 700;
+      padding: 0.5rem 1.25rem;
+      height: 2.5rem;
+      outline: none;
+    }
+    .add-to-cart--btn {
+      background-color: $primary-light;
+      border: none;
+      font-size: 1.5rem;
+      outline: none;
+      .fa-cart-plus {
+        color: $secondary-dark;
+        &:hover {
+          color: $primary-dark;
+        }
       }
     }
   }
@@ -275,6 +284,17 @@ nav {
     margin: 0 auto;
     .product {
       margin: 0 auto 2rem;
+    }
+  }
+  .product-details--section {
+    flex-direction: column;
+    max-width: 450px;
+    .product-carousel {
+      margin: 1rem 0;
+      width: 100%;
+    }
+    .product-details {
+      width: 100%;
     }
   }
 }

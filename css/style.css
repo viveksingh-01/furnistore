@@ -56,7 +56,7 @@ nav .cart-btn--container {
       font-size: 1.25rem; }
       nav .cart-btn--container .cart-btn .fa-shopping-cart:hover {
         color: #000000; }
-  nav .cart-btn--container .cart-btn__badge {
+  nav .cart-btn--container .cart-btn--badge {
     background-color: #ffc000;
     font-weight: bold;
     padding: 0.1rem 0.4rem;
@@ -165,45 +165,52 @@ nav .login-btn {
     .products--section .product .product__details .product__price {
       color: #444444;
       margin-top: auto; }
-    .products--section .product .product__details .add-to-cart__btn {
+    .products--section .product .product__details .add-to-cart--btn {
       background-color: #ffffff;
       border: none;
       font-size: 1.5rem;
       outline: none; }
-      .products--section .product .product__details .add-to-cart__btn .fa-cart-plus {
+      .products--section .product .product__details .add-to-cart--btn .fa-cart-plus {
         color: #444444; }
-        .products--section .product .product__details .add-to-cart__btn .fa-cart-plus:hover {
+        .products--section .product .product__details .add-to-cart--btn .fa-cart-plus:hover {
           color: #000000; }
-      .products--section .product .product__details .add-to-cart__btn .add-to-cart__text {
+      .products--section .product .product__details .add-to-cart--btn .add-to-cart--text {
         font-size: 0.75rem;
         font-weight: bold; }
 
-.product-carousel--container {
-  width: 50%; }
-
-.product-detail--container {
-  width: 40%; }
-  .product-detail--container .price-per-unit--text {
-    color: #444444;
-    font-weight: bold;
-    margin-bottom: 0.5rem; }
-  .product-detail--container .buy-now--btn {
-    color: #ffffff;
-    background-color: #000000;
-    border: none;
-    font-weight: 700;
-    padding: 0.5rem 1.25rem;
-    height: 2.5rem;
-    outline: none; }
-  .product-detail--container .add-to-cart__btn {
-    background-color: #ffffff;
-    border: none;
-    font-size: 1.5rem;
-    outline: none; }
-    .product-detail--container .add-to-cart__btn .fa-cart-plus {
-      color: #444444; }
-      .product-detail--container .add-to-cart__btn .fa-cart-plus:hover {
-        color: #000000; }
+.product-details--section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto; }
+  .product-details--section .product-carousel {
+    margin-right: 3rem; }
+    .product-details--section .product-carousel img {
+      width: 100%; }
+  .product-details--section .product-details {
+    width: 420px; }
+    .product-details--section .product-details .price-per-unit--text {
+      color: #444444;
+      font-weight: bold;
+      margin-bottom: 0.5rem; }
+    .product-details--section .product-details .buy-now--btn {
+      color: #ffffff;
+      background-color: #000000;
+      border: none;
+      font-weight: 700;
+      padding: 0.5rem 1.25rem;
+      height: 2.5rem;
+      outline: none; }
+    .product-details--section .product-details .add-to-cart--btn {
+      background-color: #ffffff;
+      border: none;
+      font-size: 1.5rem;
+      outline: none; }
+      .product-details--section .product-details .add-to-cart--btn .fa-cart-plus {
+        color: #444444; }
+        .product-details--section .product-details .add-to-cart--btn .fa-cart-plus:hover {
+          color: #000000; }
 
 @media screen and (max-width: 991px) {
   .filters--section {
@@ -216,7 +223,15 @@ nav .login-btn {
     width: 90%;
     margin: 0 auto; }
     .products--section .product {
-      margin: 0 auto 2rem; } }
+      margin: 0 auto 2rem; }
+  .product-details--section {
+    flex-direction: column;
+    max-width: 450px; }
+    .product-details--section .product-carousel {
+      margin: 1rem 0;
+      width: 100%; }
+    .product-details--section .product-details {
+      width: 100%; } }
 
 @media screen and (max-width: 767px) {
   .filters--section {
