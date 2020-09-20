@@ -7,6 +7,10 @@ const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn--badge')];
 const productSection = document.querySelector('.products--section');
 
+const mainContainer = document.querySelector('#mainContainer');
+const productDetailsSection = document.querySelector('#productDetailsSection');
+const addToCartBtn = document.querySelector('#addToCartBtn');
+
 let searchText = '';
 let showCategoryFilter = false;
 const selectedFilterCategories = [];
@@ -118,7 +122,7 @@ const displayProducts = products => {
       <div class="product__details">
         <div class="d-flex justify-content-between">
           <div class="product__info">
-            <h5 class="product__name">${name}</h5>
+            <h5 id="productName" class="product__name" data-id=${id}>${name}</h5>
             <h6 class="text-muted product__category">${category}</h6>
           </div>
           <h6 class="product__price">$${price}</h6>
@@ -132,7 +136,43 @@ const displayProducts = products => {
     }
   });
   productSection.innerHTML = productSectionHTML;
+  addEventListenerOnProduct(products);
   addEventListenerOnCartBtns(products);
+};
+
+const addEventListenerOnProduct = products => {
+  const productNameList = [...document.querySelectorAll('#productName')];
+  productNameList.forEach(productName => {
+    const productId = +productName.dataset.id;
+    productName.addEventListener('click', event => {
+      const product = products.find(product => product.id === productId);
+      showProductDetails(product);
+    });
+  });
+};
+
+const showProductDetails = product => {
+  const { name, category, description, price, imageUrl } = product;
+  mainContainer.innerHTML = `<section id="productDetailsSection" class="product-details--section">
+    <div class="product-carousel">
+      <img src=${imageUrl} alt=${name} />
+    </div>
+    <article class="product-details">
+      <header>
+        <h3>${name}</h3>
+        <h6>${category}</h6>
+      </header>
+      <p>${description}</p>
+      <div class="d-flex align-items-center">
+        <div class="d-flex flex-column mr-5">
+          <span class="price-per-unit--text">Price per unit</span>
+          <h5 class="font-weight-bold">$${price}</h5>
+        </div>
+        <button class="buy-now--btn mr-4">Buy Now</button>
+        <button id="addToCartBtn" class="add-to-cart--btn"><i class="fas fa-cart-plus"></i></button>
+      </div>
+    </article>
+  </section>`;
 };
 
 const addEventListenerOnCartBtns = products => {
