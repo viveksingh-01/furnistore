@@ -178,6 +178,33 @@ nav .login-btn {
         font-size: 0.75rem;
         font-weight: bold; }
 
+.product-carousel--container {
+  width: 50%; }
+
+.product-detail--container {
+  width: 40%; }
+  .product-detail--container .price-per-unit--text {
+    color: #444444;
+    font-weight: bold;
+    margin-bottom: 0.5rem; }
+  .product-detail--container .buy-now--btn {
+    color: #ffffff;
+    background-color: #000000;
+    border: none;
+    font-weight: 700;
+    padding: 0.5rem 1.25rem;
+    height: 2.5rem;
+    outline: none; }
+  .product-detail--container .add-to-cart__btn {
+    background-color: #ffffff;
+    border: none;
+    font-size: 1.5rem;
+    outline: none; }
+    .product-detail--container .add-to-cart__btn .fa-cart-plus {
+      color: #444444; }
+      .product-detail--container .add-to-cart__btn .fa-cart-plus:hover {
+        color: #000000; }
+
 @media screen and (max-width: 991px) {
   .filters--section {
     width: 100%;
