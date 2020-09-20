@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "Coombes",
+      "category": "Lounge",
+      "price": 2600,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1000/250/200"
+    },
+    {
+      "id": 1,
+      "name": "Keeve Set",
+      "category": "Table & Chairs",
+      "price": 590,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1001/250/200"
+    },
+    {
+      "id": 2,
+      "name": "Nille",
+      "category": "Armchair",
+      "price": 950,
+      "rating": 5,
+      "imageUrl": "https://picsum.photos/id/1002/250/200"
+    },
+    {
+      "id": 3,
+      "name": "Momo",
+      "category": "Shelves",
+      "price": 890,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1003/250/200"
+    },
+    {
+      "id": 4,
+      "name": "Penemille",
+      "category": "Chair",
+      "price": 120,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1004/250/200"
+    },
+    {
+      "id": 5,
+      "name": "Kappu",
+      "category": "Shelves",
+      "price": 420,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1005/250/200"
+    },
+    {
+      "id": 6,
+      "name": "Keeve Set",
+      "category": "Table & Chairs",
+      "price": 590,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1001/250/200"
+    },
+    {
+      "id": 7,
+      "name": "Kappu",
+      "category": "Shelves",
+      "price": 420,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1005/250/200"
+    },
+    {
+      "id": 8,
+      "name": "Momo",
+      "category": "Shelves",
+      "price": 890,
+      "rating": 4,
+      "imageUrl": "https://picsum.photos/id/1003/250/200"
+    }
+  ]
+}

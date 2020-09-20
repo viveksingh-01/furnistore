@@ -57,16 +57,28 @@ nav {
       color: $secondary-dark;
     }
   }
-  .cart-btn {
-    background-color: $primary-light;
-    border: none;
-    outline: none;
-    padding: 0.5rem;
-    .fa-shopping-cart {
-      color: $secondary-dark;
-      &:hover {
-        color: $primary-dark;
+  .cart-btn--container {
+    position: relative;
+    .cart-btn {
+      background-color: $primary-light;
+      border: none;
+      outline: none;
+      padding: 0.5rem;
+      .fa-shopping-cart {
+        color: $secondary-dark;
+        font-size: 1.25rem;
+        &:hover {
+          color: $primary-dark;
+        }
       }
+    }
+    .cart-btn__badge {
+      background-color: #ffc000;
+      font-weight: bold;
+      padding: 0.1rem 0.4rem;
+      position: absolute;
+      top: -0.25rem;
+      margin-left: 1.5rem;
     }
   }
   .login-btn {
@@ -92,13 +104,18 @@ nav {
   color: $primary-dark !important;
 }
 
-.filters--container {
-  width: 25%;
+.filters--section {
+  width: 320px;
   margin-right: 2rem;
-  .filters--container__header {
+  .filters--section__header {
     font-size: 0.75rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+  .filter__category {
+    #categoryFilterToggler {
+      cursor: pointer;
+    }
   }
   .filter__price-range {
     input[type='range'] {
@@ -155,16 +172,15 @@ nav {
   }
 }
 .products--section {
-  width: 75%;
+  width: 100%;
   height: 750px;
   overflow: auto;
   display: flex;
-  justify-content: space-between;
   align-content: flex-start;
   flex-wrap: wrap;
   .product {
     max-width: 250px;
-    margin-bottom: 2rem;
+    margin: 0 1rem 2rem 0;
     .product__image {
       img {
         width: 100%;
@@ -203,15 +219,23 @@ nav {
             color: $primary-dark;
           }
         }
+        .add-to-cart__text {
+          font-size: 0.75rem;
+          font-weight: bold;
+        }
       }
     }
   }
 }
 
 @media screen and (max-width: 991px) {
-  .filters--container {
-    width: 250px;
+  .filters--section {
+    width: 100%;
     margin-bottom: 2.5rem;
+    .filter__category,
+    .filter__price-range {
+      min-width: 250px;
+    }
   }
   .products--section {
     width: 90%;
@@ -223,7 +247,7 @@ nav {
 }
 
 @media screen and (max-width: 767px) {
-  .filters--container {
+  .filters--section {
     width: 90%;
     margin: 0 auto 2rem;
   }

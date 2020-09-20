@@ -44,15 +44,25 @@ nav .search-bar--form {
   nav .search-bar--form .fa-search {
     color: #444444; }
 
-nav .cart-btn {
-  background-color: #ffffff;
-  border: none;
-  outline: none;
-  padding: 0.5rem; }
-  nav .cart-btn .fa-shopping-cart {
-    color: #444444; }
-    nav .cart-btn .fa-shopping-cart:hover {
-      color: #000000; }
+nav .cart-btn--container {
+  position: relative; }
+  nav .cart-btn--container .cart-btn {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 0.5rem; }
+    nav .cart-btn--container .cart-btn .fa-shopping-cart {
+      color: #444444;
+      font-size: 1.25rem; }
+      nav .cart-btn--container .cart-btn .fa-shopping-cart:hover {
+        color: #000000; }
+  nav .cart-btn--container .cart-btn__badge {
+    background-color: #ffc000;
+    font-weight: bold;
+    padding: 0.1rem 0.4rem;
+    position: absolute;
+    top: -0.25rem;
+    margin-left: 1.5rem; }
 
 nav .login-btn {
   background-color: #ffffff;
@@ -72,14 +82,16 @@ nav .login-btn {
 .form-control {
   color: #000000 !important; }
 
-.filters--container {
-  width: 25%;
+.filters--section {
+  width: 320px;
   margin-right: 2rem; }
-  .filters--container .filters--container__header {
+  .filters--section .filters--section__header {
     font-size: 0.75rem;
     font-weight: bold;
-    margin-bottom: 2rem; }
-  .filters--container .filter__price-range input[type='range'] {
+    margin-bottom: 1rem; }
+  .filters--section .filter__category #categoryFilterToggler {
+    cursor: pointer; }
+  .filters--section .filter__price-range input[type='range'] {
     -webkit-appearance: none;
     width: 100%;
     display: block;
@@ -88,7 +100,7 @@ nav .login-btn {
     border-radius: 5px;
     margin: 1.5rem auto;
     outline: 0; }
-    .filters--container .filter__price-range input[type='range']::-webkit-slider-thumb {
+    .filters--section .filter__price-range input[type='range']::-webkit-slider-thumb {
       -webkit-appearance: none;
       background-color: #ffc000;
       width: 1rem;
@@ -96,7 +108,7 @@ nav .login-btn {
       border-radius: 50%;
       cursor: pointer;
       transition: 0.3s ease-in-out; }
-    .filters--container .filter__price-range input[type='range']::-moz-range-thumb {
+    .filters--section .filter__price-range input[type='range']::-moz-range-thumb {
       -webkit-appearance: none;
       background-color: #ffc000;
       width: 1rem;
@@ -104,7 +116,7 @@ nav .login-btn {
       border-radius: 50%;
       cursor: pointer;
       transition: 0.3s ease-in-out; }
-    .filters--container .filter__price-range input[type='range']::-ms-thumb {
+    .filters--section .filter__price-range input[type='range']::-ms-thumb {
       -webkit-appearance: none;
       background-color: #ffc000;
       width: 1rem;
@@ -112,29 +124,28 @@ nav .login-btn {
       border-radius: 50%;
       cursor: pointer;
       transition: 0.3s ease-in-out; }
-    .filters--container .filter__price-range input[type='range']::-ms-track {
+    .filters--section .filter__price-range input[type='range']::-ms-track {
       width: 100%;
       cursor: pointer;
       background: transparent;
       border-color: transparent;
       color: transparent; }
-    .filters--container .filter__price-range input[type='range']:focus {
+    .filters--section .filter__price-range input[type='range']:focus {
       outline: none; }
-  .filters--container .filter__price-range .range-value__text {
+  .filters--section .filter__price-range .range-value__text {
     color: #444444;
     font-weight: bold; }
 
 .products--section {
-  width: 75%;
+  width: 100%;
   height: 750px;
   overflow: auto;
   display: flex;
-  justify-content: space-between;
   align-content: flex-start;
   flex-wrap: wrap; }
   .products--section .product {
     max-width: 250px;
-    margin-bottom: 2rem; }
+    margin: 0 1rem 2rem 0; }
     .products--section .product .product__image img {
       width: 100%; }
     .products--section .product .product__details .product__info {
@@ -163,11 +174,17 @@ nav .login-btn {
         color: #444444; }
         .products--section .product .product__details .add-to-cart__btn .fa-cart-plus:hover {
           color: #000000; }
+      .products--section .product .product__details .add-to-cart__btn .add-to-cart__text {
+        font-size: 0.75rem;
+        font-weight: bold; }
 
 @media screen and (max-width: 991px) {
-  .filters--container {
-    width: 250px;
+  .filters--section {
+    width: 100%;
     margin-bottom: 2.5rem; }
+    .filters--section .filter__category,
+    .filters--section .filter__price-range {
+      min-width: 250px; }
   .products--section {
     width: 90%;
     margin: 0 auto; }
@@ -175,7 +192,7 @@ nav .login-btn {
       margin: 0 auto 2rem; } }
 
 @media screen and (max-width: 767px) {
-  .filters--container {
+  .filters--section {
     width: 90%;
     margin: 0 auto 2rem; } }
 
