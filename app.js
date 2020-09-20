@@ -1,11 +1,13 @@
 const searchBar = document.querySelector('#searchBar');
 const searchBarMob = document.querySelector('#searchBarMob');
+const categoryFilterSection = document.querySelector('#categoryFilterSection');
 const priceRangeFilter = document.querySelector('#priceRangeFilter');
 const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn__badge')];
 const productSection = document.querySelector('.products--section');
 
 let searchText = '';
+const selectedFilterCategories = [];
 let maxPriceFilterValue = 1000;
 
 const setupSearchBar = products => {
@@ -16,6 +18,37 @@ const setupSearchBar = products => {
   searchBarMob.addEventListener('input', event => {
     searchText = event?.target.value;
     displayProducts(products);
+  });
+};
+
+const setupCategoryFilter = products => {
+  const categories = [...new Set(products.map(({ category }) => category))];
+  let categoryFilterHTML = '';
+  categories.forEach(category => {
+    categoryFilterHTML += `<article>
+      <input type="checkbox" class="category--checkbox" name=${category} value=${category} />
+      <label for=${category}>${category}</label>
+    </article>`;
+  });
+  categoryFilterSection.innerHTML = categoryFilterHTML;
+  addEventListenerOnCategoryCheckBoxes(products);
+};
+
+const addEventListenerOnCategoryCheckBoxes = products => {
+  const categoryCBs = [...document.querySelectorAll('.category--checkbox')];
+  categoryCBs.forEach(categoryCB => {
+    categoryCB.addEventListener('change', event => {
+      const { checked, value } = event.target;
+      if (checked) {
+        selectedFilterCategories.push(value);
+      } else {
+        const index = selectedFilterCategories.indexOf(value);
+        if (index > -1) {
+          selectedFilterCategories.splice(index, 1);
+        }
+      }
+      displayProducts(products);
+    });
   });
 };
 
@@ -52,6 +85,9 @@ const getRatingsHTML = rating => {
 
 const displayProducts = products => {
   let productSectionHTML = '';
+  if (selectedFilterCategories.length) {
+    products = products.filter(({ category }) => selectedFilterCategories.includes(category));
+  }
   products.forEach(product => {
     const { id, name, category, price, rating, imageUrl } = product;
     if (price <= maxPriceFilterValue && name.toLowerCase().includes(searchText)) {
@@ -136,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   getProducts().then(products => {
     displayProducts(products);
     setupSearchBar(products);
+    setupCategoryFilter(products);
     setupPriceRangeFilter(products);
   });
 });
