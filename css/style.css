@@ -19,6 +19,8 @@ nav .navbar-brand {
   color: #ffffff !important;
   font-weight: bold;
   padding: 0.5rem 0.75rem; }
+  nav .navbar-brand:hover {
+    cursor: pointer; }
 
 nav .navbar-nav .nav-link {
   color: #444444 !important;
@@ -76,10 +78,10 @@ nav .login-btn {
   width: 6rem; }
   nav .login-btn:active {
     border: 2px solid #ffc000;
-    color: #000000; }
+    color: #ffc000; }
   nav .login-btn:hover {
     border: 2px solid #ffc000;
-    color: #000000; }
+    color: #ffc000; }
 
 .form-control {
   color: #000000 !important; }

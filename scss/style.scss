@@ -27,6 +27,9 @@ nav {
     color: $primary-light !important;
     font-weight: bold;
     padding: 0.5rem 0.75rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .navbar-nav .nav-link {
     color: $secondary-dark !important;
@@ -94,11 +97,11 @@ nav {
     width: 6rem;
     &:active {
       border: 2px solid $accent-color;
-      color: $primary-dark;
+      color: $accent-color;
     }
     &:hover {
       border: 2px solid $accent-color;
-      color: $primary-dark;
+      color: $accent-color;
     }
   }
 }

@@ -4,7 +4,7 @@ const navbar = () => {
   return `
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#">FS</a>
+      <a class="navbar-brand" onclick="navigateTo('home', '/'); return false">FS</a>
       <div class="d-flex d-md-none mr-2">
         <form class="search-bar--form">
           <span class="mr-2 my-auto"><i class="fas fa-search fa-lg"></i></span>
@@ -90,6 +90,6 @@ const navigateTo = (component, pathname) => {
 function makeNavLinkActive(component) {
   const navLinks = [...document.querySelectorAll('.nav-link')];
   navLinks.forEach(navLink => navLink.classList.remove('active'));
-  const navigatedLink = document.querySelector(`#${component}`);
+  const navigatedLink = document.querySelector(`#${component || 'home'}`);
   navigatedLink.classList.add('active');
 }
