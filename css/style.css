@@ -148,6 +148,8 @@ nav .login-btn {
     margin: 0 1rem 2rem 0; }
     .products--section .product .product__image img {
       width: 100%; }
+      .products--section .product .product__image img:hover {
+        cursor: pointer; }
     .products--section .product .product__details .product__info {
       background-color: #ffffff;
       display: flex;
@@ -158,6 +160,8 @@ nav .login-btn {
       .products--section .product .product__details .product__info .product__name {
         font-size: 1rem;
         font-weight: bold; }
+        .products--section .product .product__details .product__info .product__name:hover {
+          cursor: pointer; }
       .products--section .product .product__details .product__info .product__category {
         font-size: 0.75rem;
         text-transform: uppercase;

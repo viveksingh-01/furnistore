@@ -9,7 +9,7 @@ const displayProducts = products => {
       if (price <= maxPriceFilterValue && name.toLowerCase().includes(searchText)) {
         productSectionHTML += `<article class="product">
       <div class="product__image" title=${name}>
-        <img src=${imageUrl} alt=${name} />
+        <img id="productImg" src=${imageUrl} alt=${name} data-id=${id} />
       </div>
       <div class="product__details">
         <div class="d-flex justify-content-between">
@@ -55,7 +55,15 @@ const addEventListenerOnProduct = products => {
   const productNameList = [...document.querySelectorAll('#productName')];
   productNameList.forEach(productName => {
     const productId = +productName.dataset.id;
-    productName.addEventListener('click', event => {
+    productName.addEventListener('click', () => {
+      const product = products.find(product => product.id === productId);
+      navigateToProductDetails(product);
+    });
+  });
+  const productImgList = [...document.querySelectorAll('#productImg')];
+  productImgList.forEach(productImg => {
+    const productId = +productImg.dataset.id;
+    productImg.addEventListener('click', () => {
       const product = products.find(product => product.id === productId);
       navigateToProductDetails(product);
     });

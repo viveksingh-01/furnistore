@@ -184,6 +184,9 @@ nav {
     .product__image {
       img {
         width: 100%;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     .product__details {
@@ -197,6 +200,9 @@ nav {
         .product__name {
           font-size: 1rem;
           font-weight: bold;
+          &:hover {
+            cursor: pointer;
+          }
         }
         .product__category {
           font-size: 0.75rem;
