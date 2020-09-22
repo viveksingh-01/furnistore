@@ -27,6 +27,9 @@ nav {
     color: $primary-light !important;
     font-weight: bold;
     padding: 0.5rem 0.75rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .navbar-nav .nav-link {
     color: $secondary-dark !important;
@@ -34,12 +37,14 @@ nav {
     height: 2.25rem;
     padding: 0.5rem 1.25rem !important;
     &:active {
-      border-bottom: 2px solid $accent-color;
-      color: $primary-dark !important;
+      color: $accent-color !important;
     }
     &:hover {
-      border-bottom: 2px solid $accent-color;
-      color: $primary-dark !important;
+      cursor: pointer;
+      color: $accent-color !important;
+    }
+    &.active {
+      color: $accent-color !important;
     }
   }
   .search-bar--form {
@@ -72,8 +77,9 @@ nav {
         }
       }
     }
-    .cart-btn__badge {
+    .cart-btn--badge {
       background-color: #ffc000;
+      border-radius: 50%;
       font-weight: bold;
       padding: 0.1rem 0.4rem;
       position: absolute;
@@ -91,11 +97,11 @@ nav {
     width: 6rem;
     &:active {
       border: 2px solid $accent-color;
-      color: $primary-dark;
+      color: $accent-color;
     }
     &:hover {
       border: 2px solid $accent-color;
-      color: $primary-dark;
+      color: $accent-color;
     }
   }
 }
@@ -184,6 +190,9 @@ nav {
     .product__image {
       img {
         width: 100%;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     .product__details {
@@ -197,6 +206,9 @@ nav {
         .product__name {
           font-size: 1rem;
           font-weight: bold;
+          &:hover {
+            cursor: pointer;
+          }
         }
         .product__category {
           font-size: 0.75rem;
@@ -208,7 +220,7 @@ nav {
         color: $secondary-dark;
         margin-top: auto;
       }
-      .add-to-cart__btn {
+      .add-to-cart--btn {
         background-color: $primary-light;
         border: none;
         font-size: 1.5rem;
@@ -219,9 +231,58 @@ nav {
             color: $primary-dark;
           }
         }
-        .add-to-cart__text {
+        .add-to-cart--text {
           font-size: 0.75rem;
           font-weight: bold;
+        }
+      }
+    }
+  }
+  .no-products--template {
+    margin: 5rem auto;
+    p {
+      font-size: 1rem;
+      color: #808080;
+    }
+  }
+}
+.product-details--section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  .product-carousel {
+    margin-right: 3rem;
+    img {
+      width: 100%;
+    }
+  }
+  .product-details {
+    width: 420px;
+    .price-per-unit--text {
+      color: $secondary-dark;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .buy-now--btn {
+      color: $primary-light;
+      background-color: $primary-dark;
+      border: none;
+      font-weight: 700;
+      padding: 0.5rem 1.25rem;
+      height: 2.5rem;
+      outline: none;
+    }
+    .add-to-cart--btn {
+      background-color: $primary-light;
+      border: none;
+      font-size: 1.5rem;
+      outline: none;
+      .fa-cart-plus {
+        color: $secondary-dark;
+        &:hover {
+          color: $primary-dark;
         }
       }
     }
@@ -244,9 +305,25 @@ nav {
       margin: 0 auto 2rem;
     }
   }
+  .product-details--section {
+    flex-direction: column;
+    max-width: 450px;
+    .product-carousel {
+      margin: 1rem 0;
+      width: 100%;
+    }
+    .product-details {
+      width: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
+  nav {
+    .navbar-nav {
+      margin-top: 1rem;
+    }
+  }
   .filters--section {
     width: 90%;
     margin: 0 auto 2rem;
@@ -256,5 +333,25 @@ nav {
 @media screen and (max-width: 575px) {
   input[type='search'] {
     width: 150px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    .navbar-nav .nav-link {
+      &:active {
+        border-bottom: 2px solid $accent-color;
+        color: $primary-dark !important;
+      }
+      &:hover {
+        cursor: pointer;
+        border-bottom: 2px solid $accent-color;
+        color: $primary-dark !important;
+      }
+      &.active {
+        border-bottom: 2px solid $accent-color;
+        color: $primary-dark !important;
+      }
+    }
   }
 }
