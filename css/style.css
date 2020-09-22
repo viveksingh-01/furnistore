@@ -29,6 +29,10 @@ nav .navbar-nav .nav-link {
     border-bottom: 2px solid #ffc000;
     color: #000000 !important; }
   nav .navbar-nav .nav-link:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #ffc000;
+    color: #000000 !important; }
+  nav .navbar-nav .nav-link.active {
     border-bottom: 2px solid #ffc000;
     color: #000000 !important; }
 
@@ -58,6 +62,7 @@ nav .cart-btn--container {
         color: #000000; }
   nav .cart-btn--container .cart-btn--badge {
     background-color: #ffc000;
+    border-radius: 50%;
     font-weight: bold;
     padding: 0.1rem 0.4rem;
     position: absolute;

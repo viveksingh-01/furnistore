@@ -1,7 +1,9 @@
 const DATA_URL = 'http://localhost:8000';
 
 const routes = {
-  '/': home
+  '/': home,
+  '/shop': shop,
+  '/magazine': magazine
 };
 
 const appHTML = `

@@ -25,13 +25,13 @@ const navbar = () => {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active" onclick="navigateTo('/'); return false">HOME<span class="sr-only">(current)</span></a>
+            <a class="nav-link active" id="home" onclick="navigateTo('home', '/'); return false">HOME<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop">SHOP</a>
+            <a class="nav-link" id="shop" onclick="navigateTo('shop', '/shop'); return false">SHOP</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/magazine">MAGAZINE</a>
+            <a class="nav-link" id="magazine" onclick="navigateTo('magazine', '/magazine'); return false">MAGAZINE</a>
           </li>
         </ul>
         <div class="d-none d-md-flex">
@@ -81,7 +81,15 @@ const setupSearchBar = products => {
   });
 };
 
-const navigateTo = pathname => {
+const navigateTo = (component, pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
   mainContainer.innerHTML = routes[pathname]();
+  makeNavLinkActive(component);
 };
+
+function makeNavLinkActive(component) {
+  const navLinks = [...document.querySelectorAll('.nav-link')];
+  navLinks.forEach(navLink => navLink.classList.remove('active'));
+  const navigatedLink = document.querySelector(`#${component}`);
+  navigatedLink.classList.add('active');
+}

@@ -38,6 +38,11 @@ nav {
       color: $primary-dark !important;
     }
     &:hover {
+      cursor: pointer;
+      border-bottom: 2px solid $accent-color;
+      color: $primary-dark !important;
+    }
+    &.active {
       border-bottom: 2px solid $accent-color;
       color: $primary-dark !important;
     }
@@ -74,6 +79,7 @@ nav {
     }
     .cart-btn--badge {
       background-color: #ffc000;
+      border-radius: 50%;
       font-weight: bold;
       padding: 0.1rem 0.4rem;
       position: absolute;
