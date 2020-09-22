@@ -1,8 +1,3 @@
-const home = `
-  <aside class="filters--section">${filterSectionHTML}</aside>
-  <section class="products--section"></section>
-`;
-
 const getProducts = async () => {
   try {
     const response = await fetch(`${DATA_URL}/products`);
@@ -13,12 +8,15 @@ const getProducts = async () => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+const home = () => {
   getProducts().then(products => {
     displayProducts(products);
-    setupCategoryFilterToggler();
-    setupCategoryFilter(products);
-    setupPriceRangeFilter(products);
+    setupFilters(products);
     setupSearchBar(products);
   });
-});
+
+  return `
+    <aside class="filters--section">${filterSection()}</aside>
+    <section class="products--section"></section>
+  `;
+};

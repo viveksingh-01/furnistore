@@ -34,6 +34,7 @@ const displayProducts = products => {
       </div>
     `;
   }
+  const productSection = document.querySelector('.products--section');
   productSection.innerHTML = productSectionHTML;
   addEventListenerOnProduct(products);
   addEventListenerOnCartBtns(products);
@@ -57,7 +58,6 @@ const addEventListenerOnProduct = products => {
     productName.addEventListener('click', event => {
       const product = products.find(product => product.id === productId);
       navigateToProductDetails(product);
-      // navigateTo(`/product/${product.id}`, product);
     });
   });
 };

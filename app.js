@@ -5,9 +5,9 @@ const routes = {
 };
 
 const appHTML = `
-  ${navbarHTML}
+  ${navbar()}
   <main id="mainContainer" class="container d-flex flex-column flex-lg-row my-3">
-    ${home}
+    ${home()}
   </main>
 `;
 
@@ -16,23 +16,13 @@ rootDiv.innerHTML = appHTML;
 
 const searchBar = document.querySelector('#searchBar');
 const searchBarMob = document.querySelector('#searchBarMob');
-const categoryFilterSection = document.querySelector('#categoryFilterSection');
-const categoryFilterToggler = document.querySelector('#categoryFilterToggler');
-const priceRangeFilter = document.querySelector('#priceRangeFilter');
-const priceFilterValue = document.querySelector('#priceFilterValue');
 const cartBtnBadges = [...document.querySelectorAll('.cart-btn--badge')];
-const productSection = document.querySelector('.products--section');
 const mainContainer = document.querySelector('#mainContainer');
 const productDetailsSection = document.querySelector('#productDetailsSection');
 const addToCartBtn = document.querySelector('#addToCartBtn');
 
-const navigateTo = pathname => {
-  window.history.pushState({}, pathname, window.location.origin + pathname);
-  mainContainer.innerHTML = routes[pathname];
-};
-
 window.onpopstate = () => {
-  mainContainer.innerHTML = routes[window.location.pathname];
+  mainContainer.innerHTML = routes[window.location.pathname]();
 };
 
 const updateCartBadge = () => {
