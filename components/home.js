@@ -1,11 +1,11 @@
-const homepageHTML = `
+const home = `
   <aside class="filters--section">${filterSectionHTML}</aside>
   <section class="products--section"></section>
 `;
 
 const getProducts = async () => {
   try {
-    const response = await fetch('./../product-data.json');
+    const response = await fetch(`${DATA_URL}/products`);
     const { products } = await response.json();
     return products;
   } catch (error) {

@@ -1,11 +1,13 @@
+const DATA_URL = 'http://localhost:8000';
+
 const routes = {
-  '/': homepageHTML
+  '/': home
 };
 
 const appHTML = `
   ${navbarHTML}
   <main id="mainContainer" class="container d-flex flex-column flex-lg-row my-3">
-    ${homepageHTML}
+    ${home}
   </main>
 `;
 
