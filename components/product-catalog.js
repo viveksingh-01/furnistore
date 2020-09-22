@@ -1,12 +1,13 @@
 const displayProducts = products => {
   let productSectionHTML = '';
-  if (selectedFilterCategories.length) {
-    products = products.filter(({ category }) => selectedFilterCategories.includes(category));
-  }
-  products.forEach(product => {
-    const { id, name, category, price, rating, imageUrl } = product;
-    if (price <= maxPriceFilterValue && name.toLowerCase().includes(searchText)) {
-      productSectionHTML += `<article class="product">
+  if (products.length) {
+    if (selectedFilterCategories.length) {
+      products = products.filter(({ category }) => selectedFilterCategories.includes(category));
+    }
+    products.forEach(product => {
+      const { id, name, category, price, rating, imageUrl } = product;
+      if (price <= maxPriceFilterValue && name.toLowerCase().includes(searchText)) {
+        productSectionHTML += `<article class="product">
       <div class="product__image" title=${name}>
         <img src=${imageUrl} alt=${name} />
       </div>
@@ -24,8 +25,15 @@ const displayProducts = products => {
         </div>
       </div>
     </article>`;
-    }
-  });
+      }
+    });
+  } else {
+    productSectionHTML = `
+      <div class="no-products--template">
+        <p>No products available.</p>
+      </div>
+    `;
+  }
   productSection.innerHTML = productSectionHTML;
   addEventListenerOnProduct(products);
   addEventListenerOnCartBtns(products);

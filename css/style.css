@@ -177,6 +177,11 @@ nav .login-btn {
       .products--section .product .product__details .add-to-cart--btn .add-to-cart--text {
         font-size: 0.75rem;
         font-weight: bold; }
+  .products--section .no-products--template {
+    margin: 5rem auto; }
+    .products--section .no-products--template p {
+      font-size: 1rem;
+      color: #808080; }
 
 .product-details--section {
   width: 100%;
