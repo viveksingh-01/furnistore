@@ -7,90 +7,14 @@
     <title>Furnistore</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">FS</a>
-        <div class="d-flex d-md-none mr-2">
-          <form class="search-bar--form">
-            <span class="mr-2 my-auto"><i class="fas fa-search fa-lg"></i></span>
-            <input id="searchBarMob" type="search" class="form-control" placeholder="Search" aria-label="Search" />
-          </form>
-          <div class="mx-1 my-auto cart-btn--container">
-            <button class="cart-btn">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-            <div class="cart-btn--badge"></div>
-          </div>
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">SHOP</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">MAGAZINE</a>
-            </li>
-          </ul>
-          <div class="d-none d-md-flex">
-            <form class="search-bar--form">
-              <span class="mr-2 my-auto"><i class="fas fa-search fa-lg"></i></span>
-              <input id="searchBar" type="search" class="form-control" placeholder="Search" aria-label="Search" />
-            </form>
-            <div class="mx-3 my-auto cart-btn--container">
-              <button class="cart-btn">
-                <i class="fas fa-shopping-cart"></i>
-              </button>
-              <div class="cart-btn--badge"></div>
-            </div>
-          </div>
-          <div class="dropdown-divider"></div>
-          <div>
-            <button class="login-btn">LOGIN</button>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <main id="mainContainer" class="container d-flex flex-column flex-lg-row my-3">
-      <aside class="filters--section">
-        <h6 class="text-muted filters--section__header">FILTER BY</h6>
-        <section class="filters--container">
-          <article class="mb-2 filter__category">
-            <div class="d-flex justify-content-between">
-              <h6>Category</h6>
-              <span id="categoryFilterToggler"><i class="fas fa-chevron-down fa-lg"></i></span>
-            </div>
-            <section id="categoryFilterSection" class="m-2"></section>
-          </article>
-          <hr />
-          <article class="filter__price-range">
-            <h6>Price Range</h6>
-            <input type="range" min="0" max="10000" step="500" id="priceRangeFilter" />
-            <div class="d-flex justify-content-between">
-              <span id="priceFilterValue" class="range-value__text"></span>
-              <span class="range-value__text">$10000</span>
-            </div>
-          </article>
-        </section>
-      </aside>
-      <section class="products--section"></section>
-    </main>
+    <div id="root"></div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/product-details.js"></script>
+    <script src="components/filter-section.js"></script>
+    <script src="components/product-catalog.js"></script>
+    <script src="components/home.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
