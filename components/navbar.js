@@ -55,11 +55,26 @@ const navbar = () => {
   </nav>`;
 };
 
+const updateCartBadge = () => {
+  const itemsCount = Cart.items.length;
+  const cartBtnBadges = [...document.querySelectorAll('.cart-btn--badge')];
+  cartBtnBadges.forEach(cartBtnBadge => {
+    cartBtnBadge.textContent = itemsCount;
+    if (itemsCount) {
+      cartBtnBadge.style.display = 'block';
+    } else {
+      cartBtnBadge.style.display = 'none';
+    }
+  });
+};
+
 const setupSearchBar = products => {
+  const searchBar = document.querySelector('#searchBar');
   searchBar.addEventListener('input', event => {
     searchText = event?.target.value;
     displayProducts(products);
   });
+  const searchBarMob = document.querySelector('#searchBarMob');
   searchBarMob.addEventListener('input', event => {
     searchText = event?.target.value;
     displayProducts(products);
