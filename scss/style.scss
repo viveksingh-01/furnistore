@@ -34,17 +34,14 @@ nav {
     height: 2.25rem;
     padding: 0.5rem 1.25rem !important;
     &:active {
-      border-bottom: 2px solid $accent-color;
-      color: $primary-dark !important;
+      color: $accent-color !important;
     }
     &:hover {
       cursor: pointer;
-      border-bottom: 2px solid $accent-color;
-      color: $primary-dark !important;
+      color: $accent-color !important;
     }
     &.active {
-      border-bottom: 2px solid $accent-color;
-      color: $primary-dark !important;
+      color: $accent-color !important;
     }
   }
   .search-bar--form {
@@ -319,6 +316,11 @@ nav {
 }
 
 @media screen and (max-width: 767px) {
+  nav {
+    .navbar-nav {
+      margin-top: 1rem;
+    }
+  }
   .filters--section {
     width: 90%;
     margin: 0 auto 2rem;
@@ -328,5 +330,25 @@ nav {
 @media screen and (max-width: 575px) {
   input[type='search'] {
     width: 150px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    .navbar-nav .nav-link {
+      &:active {
+        border-bottom: 2px solid $accent-color;
+        color: $primary-dark !important;
+      }
+      &:hover {
+        cursor: pointer;
+        border-bottom: 2px solid $accent-color;
+        color: $primary-dark !important;
+      }
+      &.active {
+        border-bottom: 2px solid $accent-color;
+        color: $primary-dark !important;
+      }
+    }
   }
 }
