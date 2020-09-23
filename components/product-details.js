@@ -14,7 +14,7 @@ const productDetails = () => {
         <div class="d-flex align-items-center">
           <div class="d-flex flex-column mr-5">
             <span class="price-per-unit--text">Price per unit</span>
-            <h5 class="font-weight-bold">$${product?.price}</h5>
+            <h5 class="font-weight-bold">$${currencyFormatter(product?.price)}</h5>
           </div>
           <button class="buy-now--btn mr-4">Buy Now</button>
           <button id="addToCartBtn" class="add-to-cart--btn"><i class="fas fa-cart-plus"></i></button>

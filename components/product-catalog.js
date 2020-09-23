@@ -17,7 +17,7 @@ const displayProducts = products => {
             <h5 id="productName" class="product__name" data-id="${id}">${name}</h5>
             <h6 class="text-muted product__category">${category}</h6>
           </div>
-          <h6 class="product__price">$${price}</h6>
+          <h6 class="product__price">$${currencyFormatter(price)}</h6>
         </div>
         <div class="d-flex justify-content-between">
           <div class="mt-auto py-1 product__rating">${getRatingsHTML(rating)}</div>
