@@ -1,5 +1,5 @@
 let showCategoryFilter = false;
-let maxPriceFilterValue = 1000;
+let maxPriceFilterValue = 3000;
 let selectedFilterCategories = [];
 
 const filterSection = () => {
@@ -58,7 +58,7 @@ const setupCategoryFilter = products => {
   categories.forEach(category => {
     categoryFilterHTML += `
     <article>
-      <input type="checkbox" class="category--checkbox" name=${category} value=${category} />
+      <input type="checkbox" class="category--checkbox" name="${category}" value="${category}" />
       <label for=${category}>${category}</label>
     </article>
     `;

@@ -8,20 +8,20 @@ const displayProducts = products => {
       const { id, name, category, price, rating, imageUrl } = product;
       if (price <= maxPriceFilterValue && name.toLowerCase().includes(searchText)) {
         productSectionHTML += `<article class="product">
-      <div class="product__image" title=${name}>
-        <img id="productImg" src=${imageUrl} alt=${name} data-id=${id} />
+      <div class="product__image" title="${name}">
+        <img id="productImg" src="${imageUrl}" alt="${name}" data-id="${id}" />
       </div>
       <div class="product__details">
         <div class="d-flex justify-content-between">
           <div class="product__info">
-            <h5 id="productName" class="product__name" data-id=${id}>${name}</h5>
+            <h5 id="productName" class="product__name" data-id="${id}">${name}</h5>
             <h6 class="text-muted product__category">${category}</h6>
           </div>
           <h6 class="product__price">$${price}</h6>
         </div>
         <div class="d-flex justify-content-between">
           <div class="mt-auto py-1 product__rating">${getRatingsHTML(rating)}</div>
-          <button class="add-to-cart--btn" data-id=${id}><i class="fas fa-cart-plus"></i></button>
+          <button class="add-to-cart--btn" data-id="${id}"><i class="fas fa-cart-plus"></i></button>
         </div>
       </div>
     </article>`;

@@ -3,7 +3,7 @@ const productDetails = () => {
   return `
     <section id="productDetailsSection" class="product-details--section">
       <div class="product-carousel">
-        <img src=${product?.imageUrl} alt=${product?.name} />
+        <img src="${product?.imageUrl}" alt="${product?.name}" title="${product?.name}"/>
       </div>
       <article class="product-details">
         <header>
