@@ -1,3 +1,5 @@
+let productDetailsCartBtn = '';
+
 const productDetails = () => {
   const product = window.history.state?.product;
   return `
@@ -17,9 +19,26 @@ const productDetails = () => {
             <h5 class="font-weight-bold">$${currencyFormatter(product?.price)}</h5>
           </div>
           <button class="buy-now--btn mr-4">Buy Now</button>
-          <button id="addToCartBtn" class="add-to-cart--btn"><i class="fas fa-cart-plus"></i></button>
+          <button id="productDetailsCartBtn" class="add-to-cart--btn"><i class="fas fa-cart-plus"></i></button>
         </div>
       </article>
     </section>
   `;
+};
+
+const checkIfItemInCart = productId => {
+  const isItemInCart = Cart.items.find(item => item.id === productId);
+  if (isItemInCart) {
+    productDetailsCartBtn.innerHTML = '<span class="add-to-cart--text">ADDED TO CART</span>';
+    productDetailsCartBtn.disabled = true;
+  }
+};
+
+const setupListenerOnAddToCartBtn = product => {
+  productDetailsCartBtn = document.querySelector('#productDetailsCartBtn');
+  checkIfItemInCart(product.id);
+  productDetailsCartBtn.addEventListener('click', () => {
+    Cart.addItem(product);
+    checkIfItemInCart(product.id);
+  });
 };

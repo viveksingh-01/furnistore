@@ -74,6 +74,7 @@ const navigateToProductDetails = product => {
   const path = `/products/${product?.id}`;
   window.history.pushState({ product }, path, window.location.origin + path);
   mainContainer.innerHTML = productDetails();
+  setupListenerOnAddToCartBtn(product);
 };
 
 const addEventListenerOnCartBtns = products => {

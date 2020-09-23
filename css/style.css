@@ -224,6 +224,9 @@ nav .login-btn {
         color: #444444; }
         .product-details--section .product-details .add-to-cart--btn .fa-cart-plus:hover {
           color: #000000; }
+      .product-details--section .product-details .add-to-cart--btn .add-to-cart--text {
+        font-size: 1rem;
+        font-weight: bold; }
 
 @media screen and (max-width: 991px) {
   .filters--section {
