@@ -1,3 +1,5 @@
-# Furnistore - Exotic collection of furnitures to your door-steps.
+# Furnistore
 
-## Web application made using JavaScript and SASS.
+### Web application made using JavaScript and SASS.
+
+To access the application, run `npm start` which will kick-start local API server, SCSS compiler and local http-server.
